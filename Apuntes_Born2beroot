@@ -1,0 +1,73 @@
+Apuntes Born2beroot
+
+1. La funcionalidad basica de esta maquina virtual es aprender a configurar un servidor debian
+
+2. Mi eleccion de sistema operativo es Debian
+
+3. La diferencia basica entre rocky y debia es que rocky es mas complejo y es mas usado en empresas, por tanto debian es mas sencillo de usar y configurar
+
+4. Lo interesante de las maquinas virtuales es la capacidad de poder simular un sistema operativo dentr de otro pudiendo compartir los recursos del principal
+
+5. La diferencia entre aptitude y apt es: 
+	apt -> es mas sencillo y util para realizar tareas sencillas de forma mas eficiciente sin mucha complicacion.
+	aptitude -> Es mas util para llevar mejor control de las dependencias y tener mayor flexibilidad en la gestio de paquetes.
+	
+	APPArmor --> Es un sistema de control de acceso cuya funcion es mejorar la seguridad limitando las capacidades de las apps o procesos.
+
+------------
+SIMPLE SETUP
+------------
+
+- Comprobar UFW esta activo --> ufw status
+- Comprobar SSH esta activo --> systemctl status ssh
+- Comprobar que el S.0 es debian --> uname -a
+
+----
+USER
+----
+
+- Saber que el usu esta en sudo y user42 --> groups alejandj
+
+1. Crear usuario --> useradd ejemplo
+2. Asignarle contraseña --> passwd contraseña
+
+Requisitos password: (modulo pwquality) (/etc/pam.d/common-password)
+	retry=3 --> 3 intentos
+	minlen=10 --> 10 caracteres mi minimo
+	difok=7 --> Caracteres que no se pueden repetir de la antigua
+	maxrepeat=3 --> Maximo de caractere iguaes seguidos
+	dcredit=-1 --> Minimo 1 digito
+	ucredit=-1 --> Minimo 1 mayuscula
+	lcredit=-1 --> Minimo 1 minuscula
+	reject_username --> No puede estar el usu
+	eforce_for_root --> aplica reglas de la raiz
+
+3. 
+	-Crear un grupo llamado evaluating --> groupadd evaluating
+	-Añadirle el usuario --> usermod -aG evaluating usu
+
+Comprobar que esta --> getent group evaluating
+
+4. La ventaja es que al ser mas compleja es mas segura y dificil de hackear y la desventaja que es complicado crearla
+
+--------
+HOSTNAME
+--------
+
+1. Entrar en nano/etc/hostname
+2. Entrar en este archivo y modificarlo
+3. Entrar en nano hosts y cambiarlo
+4  Reiniciar la maquina haciendo reboot
+5. Ver las particiones con lsblk
+
+LVM --> Es un gestor de volumenes logicos de linux, permite administra el almacenamiento
+
+----
+SUDO
+----
+
+1. Comprobar que esta instalado sudo --> sudo --version
+2. Añadirle  sudo --> usermod -aG sudo usu
+
+
+  
