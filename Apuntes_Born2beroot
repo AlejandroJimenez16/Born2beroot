@@ -44,6 +44,7 @@ Requisitos password: (modulo pwquality) (/etc/pam.d/common-password)
 
 3. 
 	-Crear un grupo llamado evaluating --> groupadd evaluating
+
 	-Añadirle el usuario --> usermod -aG evaluating usu
 
 Comprobar que esta --> getent group evaluating
@@ -68,6 +69,45 @@ SUDO
 
 1. Comprobar que esta instalado sudo --> sudo --version
 2. Añadirle  sudo --> usermod -aG sudo usu
+3. Configuracion de sudo --> visudo
+
+	-Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" --> Limita las rutas que sudo puede usar para ejecutar comandos.
+
+	-Defaults requiretty --> Requiere TTY para utilizar sudo.
+
+	-Defaults badpass_message="WRONG PASSWORD" --> Muestra mensaje cuando se usa contraseña incorrecta
+
+	-Defaults logfile="/var/log/sudo/sudo.log" --> Establece archivo de registro de entrada
+
+	-Defaults log_input --> Registra entrada
+
+	-Defaults log_output --> Registra salida
+
+	-Defaults iolog_dir=/var/log/sudo --> Establece directorio para guardar registros de entrada y salida adicionales.
+
+	-Defaults passwd_tries=3 --> Limita los intentos.
+
+4.
+	-Comprobar si existe el directorio /var/log/sudo
+
+	-Para comprobar el contenido hacemos cat de los archivos
+
+	- Usar sudo para ver si se guarda en sudo.log
+
+---
+UFW
+---
+
+1. Comprobar que existe ufw instalado --> ufw --version
+2. Comprobar que esta trabajando --> sudo ufw status
+3. UFW es un cortafuegos para Linux que controla el tráfico de red permitiendo o bloqueando conexiones según reglas definidas. Su función principal es proteger el sistema evitando accesos no autorizados desde la red.
+4.  Para listar las reglas --> ufw status numbered
+5. Para añadir una nueva regla para el puerto 8080 --> ufw allow 8080
+6. Para eliminar la regla --> ufw delete (el numero de la regla)
+
+-----
+
+
 
 
   
