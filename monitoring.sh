@@ -25,9 +25,11 @@ porc=$(df -h --block-size=G --total | grep total | awk '{print $5}' | cut -d '%'
 printf "#Disk Usage: $memU/$memT%s ($porc%%)\n" "Gb"
 
 #Porcentaje actual uso nucleos
-p1=$(mpstat | grep all | awk '{print $4}')
-p2=$(mpstat | grep all | awk '{print $6}')
-printf "#CPU load: %d%s\n" "$(($p1 + $p2))" "%"
+p1=$(mpstat | grep all | awk '{print $NF}')
+p1=$(echo "$p1" | tr ',' '.')
+p1=$(echo "100 - $p1" | bc)
+p1=$(echo "$p1" | tr '.' ',')
+printf "#CPU load: %01.2f%s\n" $p1 "%"
 
 #Fecha y hora del ultimo reinicio
 date=$(who -b | awk '{print $4 " " $5}')

@@ -8,7 +8,8 @@ Apuntes Born2beroot
 
 4. Lo interesante de las maquinas virtuales es la capacidad de poder simular un sistema operativo dentr de otro pudiendo compartir los recursos del principal
 
-5. La diferencia entre aptitude y apt es: 
+5. La diferencia entre aptitude y apt es: 	
+
 	apt -> es mas sencillo y util para realizar tareas sencillas de forma mas eficiciente sin mucha complicacion.
 	aptitude -> Es mas util para llevar mejor control de las dependencias y tener mayor flexibilidad en la gestio de paquetes.
 	
@@ -41,6 +42,12 @@ Requisitos password: (modulo pwquality) (/etc/pam.d/common-password)
 	lcredit=-1 --> Minimo 1 minuscula
 	reject_username --> No puede estar el usu
 	eforce_for_root --> aplica reglas de la raiz
+
+Otro archivo: (/etc/login.defs)
+	PASS_MAX_DAYS 30 --> Hace que la contraseña caduca en 30 dias
+	PASS_MIN_DAYS 2 --> Numero min de dias antes de modificar la contraseña
+	PASS_WARN_AGE 7 --> Dias de aviso
+
 
 3. 
 	-Crear un grupo llamado evaluating --> groupadd evaluating
@@ -79,14 +86,6 @@ SUDO
 
 	-Defaults logfile="/var/log/sudo/sudo.log" --> Establece archivo de registro de entrada
 
-	-Defaults log_input --> Registra entrada
-
-	-Defaults log_output --> Registra salida
-
-	-Defaults iolog_dir=/var/log/sudo --> Establece directorio para guardar registros de entrada y salida adicionales.
-
-	-Defaults passwd_tries=3 --> Limita los intentos.
-
 4.
 	-Comprobar si existe el directorio /var/log/sudo
 
@@ -105,9 +104,22 @@ UFW
 5. Para añadir una nueva regla para el puerto 8080 --> ufw allow 8080
 6. Para eliminar la regla --> ufw delete (el numero de la regla)
 
------
+----
+SSH
+----
 
+1 y 2. Comprobar que ssh esta instalado y que esta activo --> systemctl status ssh
+3. Que es ssh --> Es un protocolo de red que permite conectarse de manera segura a otro dispositivo a traves de una red . Usa cifrado para proteger los datos transmitidos.
+4. Verifica que ssh solo usa el puerto 4242 --> nano /etc/ssh/sshd_config y ver el puerto.
+						
+	APPArmor --> Es un sistema de control de acceso cuya funcion es mejorar la seguridad limitando las capacidades de las apps o procesos.
+						(en root) systemctl status ssh.
 
+------
+SCRIPT
+------
 
+1. Funcionamiento del script --> Mostrar cierta informacion del servidor debian
+2. Que es cron --> Es un servivio que permite programar la ejecucion de tareas automaticas.
+3. Programar accion cada 10 min --> crontab -e
 
-  
