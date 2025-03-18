@@ -1,0 +1,19 @@
+
+1. Diferencias rocky/debian:
+
+    - Rocky --> Es mas complejo, mas estable a largo plazo, enfocado a las empresas y soporte con servidores.
+    - Debian --> Es mas simple, mas flexible y soporte tanto escritorio como servidores.
+
+2. Diferencias apt/aptitude:
+
+    - apt --> Es mas util y eficiente para tareas sencillas, no posee interfaz grafica.
+    - aptitude --> Permite llevar una mejor gestion de las dependencias , mayor flexibilidad en la gestion de paquetes, posee interfaz grafica.
+
+3. AppArmor --> Es un sistema de seguridad que para mayor seguridad restringe los recursos que pueden usar las apps.
+
+4. LVM --> Es un sistema de gestion de almacenamiento que permite crear, redimensionar y administrar volumenes logicos en un disco de manera flexible.
+
+5. UFW --> Es un cortafuegos que conytrola el trafico de red, permitiendo o bloqueando conexiones segun reglas definidas.
+
+6. SSH --> Es un protocolo de red que permite conectarse de manera segura a otro dispositivo, usa cifrado para proteger la info.
+
